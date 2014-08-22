@@ -94,13 +94,14 @@ load_dot_env <- function(file = ".env") {
     set_env()
 }
 
-line_regex <- paste0("^\\s*",                  # Leading whitespace
+line_regex <- paste0("^\\s*",                  # leading whitespace
                      "(?<export>export\\s+)?", # export, if given
                      "(?<key>[^=]+)",          # variable name
                      "=",                      # equals sign
                      "(?<q>['\"]?)",           # quote if present
                      "(?<value>.*)",           # value
                      "\\g{q}",                 # the same quote again
+                     "\\s*",                   # trailing whitespace
                      "$")                      # end of line
 
 parse_dot_line <- function(line) {
