@@ -6,9 +6,48 @@
 load_dot_env(file = ".env")
 }
 \arguments{
-\item{file}{The name of the file to load from.}
+\item{file}{The name of the file to use.}
 }
 \description{
-Load environment variables from the specified file
+Load variables defined in the given file, as environment
+variables.
+}
+\details{
+The file is parsed line by line, and line is expected
+to have one of the following formats:
+\preformatted{VARIABLE=value
+VARIABLE2="quoted value"
+VARIABLE3='another quoted variable'
+export EXPORTED="exported variable"
+export EXPORTED2=another}
+
+In more details:
+\itemize{
+  \item A leading \code{export} is ignored, to keep the file
+     compatible with Unix shells.
+  \item No whitespace is allowed right before or after the
+     equal sign, again, to promote compatilibity with Unix shells.
+  \item No multi-line variables are supported currently. The
+     file is strictly parsed line by line.
+  \item Unlike for Unix shells, unquoted values are \emph{not}
+     terminated by whitespace.
+}
+
+It is suggested to keep the file in a form that is parsed the
+same way with \code{dotenv} and \code{bash} (or other shells).
+}
+\examples{
+# Remove, if it exists
+Sys.unsetenv("dotenvexamplefoo")
+Sys.getenv("dotenvexamplefoo")
+
+# Load from a file
+tmp <- tempfile()
+cat("dotenvexamplefoo=bar\\n", file = tmp)
+load_dot_env(tmp)
+Sys.getenv("dotenvexamplefoo")
+
+# Clean up
+unlink(tmp)
 }
 

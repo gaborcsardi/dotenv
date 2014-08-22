@@ -4,6 +4,29 @@
 \alias{dotenv-package}
 \title{Load configuration parameters from .env into environment variables}
 \description{
-Load configuration parameters from .env into environment variables
+It has become a practice to store configuration parameters related
+to a project, in a hidden file called \code{.env}, in the working
+directory of a project, and then set them as environment variables.
+}
+\details{
+This package loads the variables defined in the \code{.env} file
+in the current working directory (as reported by \code{getwd}),
+and sets them as environment variables.
+
+This happens automatically when the \code{dotenv} package is loaded,
+so the typical use-case is to just put a `library(dotenv)` code at the
+beginning of your R script.
+
+Alternatively a \code{dotenv::load_dot_env()} call can be used
+to load variables from arbitrary files.
+
+The format of the \code{.env} file is also a valid unix shell
+file format, so e.g. in \code{bash} the environment variables
+can also be set by running \code{source .env}.
+
+See \code{\link{load_dot_env}} for the exact file format.
+}
+\seealso{
+load_dot_env
 }
 
