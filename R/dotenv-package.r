@@ -48,6 +48,7 @@ NULL
 #' \preformatted{VARIABLE=value
 #' VARIABLE2="quoted value"
 #' VARIABLE3='another quoted variable'
+#' # Comment line
 #' export EXPORTED="exported variable"
 #' export EXPORTED2=another}
 #'
@@ -61,6 +62,10 @@ NULL
 #'      file is strictly parsed line by line.
 #'   \item Unlike for Unix shells, unquoted values are \emph{not}
 #'      terminated by whitespace.
+#'   \item Comments start with \code{#}, without any leading
+#'      whitespace. You cannot mix variable definitions and
+#'      comments in the same line.
+#'   \item Empty lines (containing whitespace only) are ignored.
 #' }
 #'
 #' It is suggested to keep the file in a form that is parsed the
@@ -90,8 +95,18 @@ load_dot_env <- function(file = ".env") {
 
   file %>%
     readLines() %>%
+    ignore_comments() %>%
+    ignore_empty_lines() %>%
     lapply(parse_dot_line) %>%
     set_env()
+}
+
+ignore_comments <- function(lines) {
+  grep("^#", lines, invert = TRUE, value = TRUE)
+}
+
+ignore_empty_lines <- function(lines) {
+  grep("^\\s*$", lines, invert = TRUE, value = TRUE)
 }
 
 line_regex <- paste0("^\\s*",                  # leading whitespace

@@ -18,6 +18,7 @@ to have one of the following formats:
 \preformatted{VARIABLE=value
 VARIABLE2="quoted value"
 VARIABLE3='another quoted variable'
+# Comment line
 export EXPORTED="exported variable"
 export EXPORTED2=another}
 
@@ -31,6 +32,10 @@ In more details:
      file is strictly parsed line by line.
   \item Unlike for Unix shells, unquoted values are \emph{not}
      terminated by whitespace.
+  \item Comments start with \code{#}, without any leading
+     whitespace. You cannot mix variable definitions and
+     comments in the same line.
+  \item Empty lines (containing whitespace only) are ignored.
 }
 
 It is suggested to keep the file in a form that is parsed the
