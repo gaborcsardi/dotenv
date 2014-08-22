@@ -6,3 +6,6 @@ Description: Load configuration from a .env file, that is
     in the current working directory, into environment variables.
 License: MIT + file LICENSE
 LazyData: true
+Imports:
+    magrittr,
+    falsy
