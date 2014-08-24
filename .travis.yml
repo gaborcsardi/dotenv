@@ -9,7 +9,7 @@ before_install:
 
 install:
   - ./travis-tool.sh install_deps
-  - ./travis-tool.sh install_githu gaborcsardi/falsy
+  - ./travis-tool.sh install_github gaborcsardi/falsy
 
 script: ./travis-tool.sh run_tests
 
