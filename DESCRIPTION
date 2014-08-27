@@ -9,3 +9,5 @@ LazyData: true
 Imports:
     magrittr,
     falsy
+URL: https://github.com/gaborcsardi/dotenv
+BugReports: https://github.com/gaborcsardi/dotenv/issues
