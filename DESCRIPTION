@@ -1,6 +1,6 @@
 Package: dotenv
 Title: Load environment variables from .env
-Version: 0.1
+Version: 1.0
 Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
 Description: Load configuration from a .env file, that is
     in the current working directory, into environment variables.
