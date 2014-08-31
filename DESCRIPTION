@@ -1,7 +1,8 @@
 Package: dotenv
 Title: Load environment variables from .env
 Version: 1.0
-Authors@R: "Gabor Csardi <csardi.gabor@gmail.com> [aut, cre]"
+Authors@R: c(person("Gabor", "Csardi", role = c("aut", "cre", "cph"), email =
+    "csardi.gabor@gmail.com"))
 Description: Load configuration from a .env file, that is
     in the current working directory, into environment variables.
 License: MIT + file LICENSE
