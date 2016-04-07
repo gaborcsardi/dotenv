@@ -1,14 +1,12 @@
 Package: dotenv
 Title: Load environment variables from .env
-Version: 1.0
+Version: 1.0.1
 Authors@R: c(person("Gabor", "Csardi", role = c("aut", "cre", "cph"), email =
     "csardi.gabor@gmail.com"))
 Description: Load configuration from a .env file, that is
     in the current working directory, into environment variables.
 License: MIT + file LICENSE
 LazyData: true
-Imports:
-    magrittr,
-    falsy
 URL: https://github.com/gaborcsardi/dotenv
 BugReports: https://github.com/gaborcsardi/dotenv/issues
+RoxygenNote: 5.0.1.9000

@@ -3,7 +3,7 @@
 
 [![Linux Build Status](https://travis-ci.org/gaborcsardi/dotenv.svg?branch=master)](https://travis-ci.org/gaborcsardi/dotenv)
 [![Windows build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/dotenv?svg=true)](https://ci.appveyor.com/project/gaborcsardi/dotenv)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/dotenv)](http://cran.r-project.org/web/packages/dotenv/index.html)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/dotenv)](http://www.r-pkg.org/pkg/dotenv)
 
 # dotenv — Load environment variables from .env
 
@@ -22,7 +22,6 @@ to load variables from arbitrary files.
 
 
 ```r
-devtools::install_github("gaborcsardi/falsy")
 devtools::install_github("gaborcsardi/dotenv")
 ```
 
