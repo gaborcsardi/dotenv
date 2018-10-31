@@ -3,4 +3,3 @@
 ^appveyor.yml$
 ^Makefile$
 ^inst/README.Rmd$
-^README.md$
