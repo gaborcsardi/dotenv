@@ -23,7 +23,7 @@ to load variables from arbitrary files.
 
 
 ```r
-devtools::install_github("gaborcsardi/dotenv")
+install.packages("dotenv")
 ```
 
 ## Usage
