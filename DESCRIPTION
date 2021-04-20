@@ -1,6 +1,6 @@
 Package: dotenv
 Title: Load Environment Variables from '.env'
-Version: 1.0.2
+Version: 1.0.2.9000
 Authors@R: c(person("Gábor", "Csárdi", role = c("aut", "cre", "cph"), email =
     "csardi.gabor@gmail.com"))
 Description: Load configuration from a '.env' file, that is
