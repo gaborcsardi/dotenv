@@ -90,6 +90,10 @@ load_dot_env <- function(file = ".env") {
   tmp <- readLines(file)
   tmp <- ignore_comments(tmp)
   tmp <- ignore_empty_lines(tmp)
+
+  # If there's no env vars, return nothing
+  if (length(tmp) == 0) return(invisible())
+
   tmp <- lapply(tmp, parse_dot_line)
   set_env(tmp)
 }
