@@ -3,3 +3,4 @@
 ^appveyor.yml$
 ^Makefile$
 ^README.Rmd$
+^\.github$
