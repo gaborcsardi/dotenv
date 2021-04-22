@@ -3,11 +3,11 @@
 
 [![Project Status: Active - The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R build
 status](https://github.com/gaborcsardi/dotenv/workflows/R-CMD-check/badge.svg)](https://github.com/gaborcsardi/dotenv/actions)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/dotenv)](http://www.r-pkg.org/pkg/dotenv)
+downloads](https://cranlogs.r-pkg.org/badges/dotenv)](https://www.r-pkg.org/pkg/dotenv)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/gaborcsardi/dotenv/master.svg)](https://codecov.io/github/gaborcsardi/dotenv?branch=master)
 <!-- badges: end -->
