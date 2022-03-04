@@ -49,11 +49,10 @@ Sys.getenv("dotenvexamplefoo")
 
 # Load from a file
 tmp <- tempfile()
-cat("dotenvexamplefoo=bar\\n", file = tmp)
+cat("dotenvexamplefoo=bar\n", file = tmp)
 load_dot_env(tmp)
 Sys.getenv("dotenvexamplefoo")
 
 # Clean up
 unlink(tmp)
 }
-
