@@ -54,14 +54,19 @@ of the following formats:
     export EXPORTED="exported variable"
     export EXPORTED2=another
 
-In more details: \* A leading `export` is ignored, to keep the file
-compatible with Unix shells. \* No whitespace is allowed right before or
-after the equal sign, again, to promote compatilibity with Unix shells.
-\* No multi-line variables are supported currently. The file is strictly
-parsed line by line. \* Unlike for Unix shells, unquoted values are
-*not* terminated by whitespace. \* Comments start with `#`, without any
-leading whitespace. You cannot mix variable definitions and comments in
-the same line. \* Empty lines (containing whitespace only) are ignored.
+In more details:
+
+-   A leading `export` is ignored, to keep the file compatible with Unix
+    shells.
+-   No whitespace is allowed right before or after the equal sign,
+    again, to promote compatilibity with Unix shells.
+-   No multi-line variables are supported currently. The file is
+    strictly parsed line by line.
+-   Unlike for Unix shells, unquoted values are *not* terminated by
+    whitespace.
+-   Comments start with `#`, without any leading whitespace. You cannot
+    mix variable definitions and comments in the same line.
+-   Empty lines (containing whitespace only) are ignored.
 
 It is suggested to keep the file in a form that is parsed the same way
 with `dotenv` and `bash` (or other shells).
