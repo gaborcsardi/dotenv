@@ -63,6 +63,7 @@ export EXPORTED2=another
 ```
 
 In more details:
+
  * A leading `export` is ignored, to keep the file
    compatible with Unix shells.
  * No whitespace is allowed right before or after the
