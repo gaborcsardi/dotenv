@@ -2,16 +2,19 @@
 % Please edit documentation in R/dotenv-package.r
 \name{load_dot_env}
 \alias{load_dot_env}
-\title{Load environment variables from the specified file}
+\alias{dotenv_values}
+\title{Load variables from the specified file}
 \usage{
 load_dot_env(file = ".env")
+
+dotenv_values(file = ".env")
 }
 \arguments{
 \item{file}{The name of the file to use.}
 }
 \description{
-Load variables defined in the given file, as environment
-variables.
+Load variables from the specified file either into environment variables 
+or into a list.
 }
 \details{
 The file is parsed line by line, and line is expected
@@ -42,14 +45,25 @@ In more details:
 It is suggested to keep the file in a form that is parsed the
 same way with \code{dotenv} and \code{bash} (or other shells).
 }
+\section{Functions}{
+\itemize{
+\item \code{load_dot_env()}: Load variables defined in the given file, into environment variables
+
+\item \code{dotenv_values()}: Load variables defined in the given file, into a list
+
+}}
 \examples{
 # Remove, if it exists
 Sys.unsetenv("dotenvexamplefoo")
 Sys.getenv("dotenvexamplefoo")
 
-# Load from a file
+# Load from a file ...
 tmp <- tempfile()
 cat("dotenvexamplefoo=bar\n", file = tmp)
+# ... into a list
+vars <- dotenv_values(tmp)
+vars$dotenvexamplefoo
+# ... into environment variables
 load_dot_env(tmp)
 Sys.getenv("dotenvexamplefoo")
 

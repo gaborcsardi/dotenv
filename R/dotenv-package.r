@@ -32,10 +32,10 @@ NULL
   if (file.exists(".env")) load_dot_env()
 }
 
-#' Load environment variables from the specified file
-#'
-#' Load variables defined in the given file, as environment
-#' variables.
+#' Load variables from the specified file
+#' 
+#' Load variables from the specified file either into environment variables 
+#' or into a list.
 #'
 #' @details
 #' The file is parsed line by line, and line is expected
@@ -67,6 +67,7 @@ NULL
 #' same way with \code{dotenv} and \code{bash} (or other shells).
 #'
 #' @param file The name of the file to use.
+#' @describeIn load_dot_env Load variables defined in the given file, into environment variables
 #' @export
 #'
 #' @examples
@@ -74,9 +75,13 @@ NULL
 #' Sys.unsetenv("dotenvexamplefoo")
 #' Sys.getenv("dotenvexamplefoo")
 #'
-#' # Load from a file
+#' # Load from a file ...
 #' tmp <- tempfile()
 #' cat("dotenvexamplefoo=bar\n", file = tmp)
+#' # ... into a list
+#' vars <- dotenv_values(tmp)
+#' vars$dotenvexamplefoo
+#' # ... into environment variables
 #' load_dot_env(tmp)
 #' Sys.getenv("dotenvexamplefoo")
 #'
@@ -85,17 +90,35 @@ NULL
 
 load_dot_env <- function(file = ".env") {
 
+  tmp <- dotenv_values(file = file)
+
+  # If there's no env vars, return nothing
+  if (length(tmp) == 0) return(invisible())
+ 
+  set_env(tmp)
+}
+
+#' @describeIn load_dot_env Load variables defined in the given file, into a list
+#' @param file The name of the file to use.
+#' @export
+
+dotenv_values <- function(file = ".env") {
   if (!file.exists(file)) stop("dot-env file does not exist", call. = TRUE)
 
   tmp <- readLines(file)
   tmp <- ignore_comments(tmp)
   tmp <- ignore_empty_lines(tmp)
 
-  # If there's no env vars, return nothing
-  if (length(tmp) == 0) return(invisible())
+  if (length(tmp) == 0) return(invisible(list()))
 
   tmp <- lapply(tmp, parse_dot_line)
-  set_env(tmp)
+
+  tmp <- structure(
+    .Data  = lapply(tmp, "[[", "value"),
+    .Names = sapply(tmp, "[[", "key")
+  )
+
+  return(tmp)
 }
 
 ignore_comments <- function(lines) {
@@ -136,9 +159,5 @@ extract_match <- function(line, match) {
 }
 
 set_env <- function(pairs) {
-  tmp <- structure(
-    .Data  = lapply(pairs, "[[", "value"),
-    .Names = sapply(pairs, "[[", "key")
-  )
-  do.call(Sys.setenv, tmp)
+  do.call(Sys.setenv, pairs)
 }
