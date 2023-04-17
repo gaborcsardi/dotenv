@@ -29,7 +29,11 @@
 NULL
 
 .onLoad <- function(libname, pkgname) {
-  if (file.exists(".env")) load_dot_env()
+  auto_load = !(
+    (Sys.getenv("R_DOTENV_AUTOLOAD") == "FALSE") |
+    (Sys.getenv("R_DOTENV_AUTOLOAD") == "False")
+  )
+  if (auto_load && file.exists(".env")) load_dot_env()
 }
 
 #' Load variables from the specified file
