@@ -12,7 +12,8 @@
 #'
 #' This happens automatically when the \code{dotenv} package is loaded,
 #' so the typical use-case is to just put a `library(dotenv)` code at the
-#' beginning of your R script.
+#' beginning of your R script. To disable this behavior, set the
+#' environment variable \code{R_DOTENV_AUTOLOAD} to \code{FALSE}.
 #'
 #' Alternatively a \code{dotenv::load_dot_env()} call can be used
 #' to load variables from arbitrary files.
