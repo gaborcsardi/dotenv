@@ -8,5 +8,5 @@ Description: Load configuration from a '.env' file, that is
 License: MIT + file LICENSE
 URL: https://github.com/gaborcsardi/dotenv
 BugReports: https://github.com/gaborcsardi/dotenv/issues
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Encoding: UTF-8

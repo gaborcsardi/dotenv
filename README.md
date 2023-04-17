@@ -23,7 +23,9 @@ typical use-case is to just put a `library(dotenv)` call at the
 beginning of your R script.
 
 Alternatively a `dotenv::load_dot_env()` call can be used to load
-variables from arbitrary files.
+variables from arbitrary files. Furthermore, you can set the environment
+variable `R_DOTENV_AUTOLOAD` to `False` to disable automatic loading and
+use `dotenv::dotenv_values()` to get the `.env` values in a list.
 
 ## Installation
 
